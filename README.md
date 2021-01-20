@@ -1,6 +1,6 @@
 # R-dplyr
 
-Nesses exemplos eu utilizo os pacotes ggplot2movies e dplyr do Tidyverse.
+Nesses exemplos eu utilizo os pacotes ggplot2movies e dplyr (Tidyverse).
 O Tidyverse é uma das ferramentas mais poderosas do R, e com ela posso mostrar porque o R é capaz de executar ETL.
 
 Nesses exemplos:
