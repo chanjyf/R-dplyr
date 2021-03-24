@@ -3,43 +3,42 @@
 # Usar R para ETL #
 ###################
 
-# library nos pacotes
+# library in all packages
 library(dplyr)
 library(ggplot2movies)
 
-# puxar a base de dados
+# database
 data(movies)
 
-# eu sempre crio uma nova base para fazer minhas alterações.
-# nesse caso vou criar uma base nova para cada alteração
+# I will create a new database for every change, so the original will be safe
 
-#usar rename
+#using rename
 movies_rename = movies1 %>%
   dplyr::rename(name = title)
 
-#usar mutate
+#using mutate
 movies_mutate = movies1 %>%
   dplyr::mutate(diff_mean = length-median(length))
 
-#usar arrange
+#using arrange
 movies_arrange = movies1 %>%
   dplyr::arrange(desc(year,title))
 
-#usar filter
+#using filter
 movies_filter = movies1 %>%
   dplyr::filter(Action == 1)
 
-#usar summarise
-#vou aproveitar a última base
+#using summarise
+#I'll use the database on the last exercise (filter)
 movies_filter %>%
   dplyr::group_by(Action) %>%
   summarise(n=n())
 
-#ou podemos juntar alguns verbos que aprendemos
+#we can use a lot of dplyr verbs together as well
 data(movies)
 str(movies)
 action = movies %>% filter(Action==1)
 action %>% summarise(n = n())
 
-#caso queira salvar a base de dados
+#if you want to save the database
 write.csv(movies, "movies1")
